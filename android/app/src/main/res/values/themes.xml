@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- M6: must descend from a Theme.AppCompat now that MainActivity extends AppCompatActivity
+         (needed for AppCompatDelegate.setApplicationLocales()'s automatic Activity-recreate,
+         F-07 AC2) — the plain android:Theme.Material.* used through M2/M3/M5 throws "You need to
+         use a Theme.AppCompat theme (or descendant) with this activity" at runtime under
+         AppCompatActivity. Uses Theme.AppCompat directly (rather than Theme.MaterialComponents)
+         since this project doesn't otherwise depend on com.google.android.material:material —
+         androidx.appcompat:appcompat alone ships these themes. Full Material3 visual theming
+         (colors, typography, dark mode) beyond this is separate M6 (UI 美化) polish, not done
+         here — Compose's MaterialTheme{} (already used in MainActivity.setContent) governs actual
+         Compose UI styling regardless of this XML theme. -->
+    <style name="Theme.OnThisDayWidget" parent="Theme.AppCompat.DayNight.NoActionBar" />
+</resources>

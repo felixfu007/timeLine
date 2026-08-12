@@ -1,0 +1,27 @@
+# Android/Gradle build artifacts and local machine config — none of this should be committed.
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+app/build/
+app/release/
+app/debug/
+
+# The repo root's top-level .gitignore has a blanket "*.jar" rule which would otherwise
+# silently exclude the legitimate Gradle wrapper binary — un-ignore it explicitly so
+# `./gradlew` works out of the box for anyone who clones the repo (standard Gradle wrapper
+# convention: gradle-wrapper.jar IS meant to be committed).
+!gradle/wrapper/gradle-wrapper.jar
+
+# Release signing secrets — NEVER commit these. Generated locally per machine by the
+# release skill; back up the keystore + passwords yourself somewhere safe (e.g. a password
+# manager), not in git. Losing the keystore means future releases can't be signed with the
+# same identity as past ones.
+/keystore.properties
+/keystore/*.jks
+/keystore/*.keystore

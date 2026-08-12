@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Placeholder layout the AppWidgetHost renders for a brief moment before Glance's own
+    composition takes over (android:initialLayout requirement). Intentionally minimal —
+    Glance's provideGlance() replaces this almost immediately with the real content, including
+    its own explicit "no data yet" state (F-01 #4), so this never stays visible long enough to
+    need i18n/theming polish (deferred to M6 if it turns out to matter in practice).
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

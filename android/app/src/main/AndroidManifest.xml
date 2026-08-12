@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Privacy standard (ANALYSIS.md 五、隱私): only INTERNET is requested for calling the
+        Wikipedia On This Day API. No contacts/location/storage/analytics/ad SDK permissions.
+        RECEIVE_BOOT_COMPLETED is intentionally NOT declared — on this app's minSdk (26+),
+        PeriodicWorkRequest is backed by JobScheduler, whose jobs are persisted and restored by
+        the OS across reboot on their own; WorkScheduler is also re-invoked (idempotently, via
+        ExistingPeriodicWorkPolicy.KEEP) on every app start as a second line of defense. Confirmed
+        during M4 (daily fetch scheduling) — see TimelineApplication's kdoc.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".TimelineApplication"
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.OnThisDayWidget"
+        android:supportsRtl="true">
+
+        <!--
+            MainActivity is a minimal placeholder in M1 (see MainActivity.kt).
+            Full list/detail UI is M2 scope.
+        -->
+        <!--
+            launchMode="singleTop": user-reported defect (post-M7 real-device testing) — tapping
+            the home-screen Widget while MainActivity already had a live instance in the Task
+            (i.e. the app was merely backgrounded, not force-stopped) stacked a *second*
+            MainActivity instance on top of it (`dumpsys activity activities` showed
+            numActivities=2), so pressing back only unwound the new instance, landing on the
+            stale hidden one underneath instead of exiting the Task. singleTop makes the system
+            redeliver the Intent to the existing top instance via onNewIntent() instead of
+            creating a new one, when MainActivity is already at the top of the Task. See
+            MainActivity.kt's onNewIntent() for how the eventId extra is then handled.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.OnThisDayWidget">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- M3: Glance widget (F-01/F-03). Not exported — only the system needs to broadcast
+             APPWIDGET_UPDATE to it. -->
+        <receiver
+            android:name=".widget.HistoryWidgetReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/history_widget_info" />
+        </receiver>
+
+        <!-- Disable WorkManager's default auto-initializer (App Startup ContentProvider) —
+             see TimelineApplication's kdoc for why: it would run before Hilt injection and
+             crash. WorkManager.initialize() is called manually in TimelineApplication.onCreate(). -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+    </application>
+
+</manifest>

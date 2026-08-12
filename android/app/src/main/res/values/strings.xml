@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">歷史上的今天</string>
+
+    <!-- M2: 歷史事件列表頁 -->
+    <string name="list_screen_title">歷史上的今天</string>
+    <string name="loading_label">載入中…</string>
+    <string name="empty_no_data_title">今天沒有歷史事件資料</string>
+    <string name="empty_error_title">無法取得資料，請檢查網路連線後再試一次</string>
+    <string name="retry_button">重試</string>
+    <string name="stale_data_notice">目前顯示的是先前的快取資料，最新資料暫時無法取得</string>
+    <!-- %1$d = 西元年份, %2$s = 事件標題，依 REQUIREMENTS.md 2.2 節「【西元年份】事件標題」格式 -->
+    <string name="event_item_format">【%1$d】%2$s</string>
+
+    <!-- 排序功能（2026-07-30）：TopAppBar 排序圖示與選單 -->
+    <string name="sort_content_description">排序</string>
+    <string name="sort_menu_year_ascending">年代：舊到新</string>
+    <string name="sort_menu_year_descending">年代：新到舊</string>
+
+    <!-- M2: 事件詳情頁 -->
+    <string name="detail_screen_title">事件詳情</string>
+    <string name="back_content_description">返回</string>
+    <string name="detail_year_label">西元 %1$d 年</string>
+    <string name="source_section_title">延伸閱讀</string>
+    <string name="detail_not_found">找不到此事件，可能已被更新的資料取代</string>
+    <string name="attribution_notice">資料來源：Wikipedia（CC BY-SA 授權）</string>
+
+    <!-- M3: Widget -->
+    <string name="widget_preparing_data">資料準備中，請稍候…</string>
+    <string name="widget_app_name_short">歷史上的今天</string>
+
+    <!-- M6: 設定頁 -->
+    <string name="settings_content_description">設定</string>
+    <string name="settings_screen_title">設定</string>
+    <string name="settings_language_section_title">語言</string>
+    <string name="settings_language_zh_hant">繁體中文</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_rotation_interval_section_title">Widget 輪播間隔</string>
+    <string name="settings_rotation_interval_hint">Widget 因系統限制以定時輪播方式呈現，非連續捲動；實際生效時間可能因系統省電機制有 ±15 分鐘誤差</string>
+    <!-- %1$d = 分鐘數 -->
+    <string name="settings_rotation_interval_option">%1$d 分鐘</string>
+
+    <!-- Widget 外觀自訂（2026-07-30）：預設色票（背景淺色系／文字深色系／框線中性色系），非自由調色盤 -->
+    <string name="settings_widget_appearance_section_title">Widget 外觀</string>
+    <string name="settings_widget_appearance_preview_label">預覽</string>
+    <string name="settings_widget_appearance_preview_text">【1969】范例歷史事件文字</string>
+    <string name="settings_widget_background_color_label">背景色</string>
+    <string name="settings_widget_text_color_label">文字色</string>
+    <string name="settings_widget_border_color_label">框線色</string>
+
+    <string name="settings_widget_color_lavender">淺紫</string>
+    <string name="settings_widget_color_pink">淺粉</string>
+    <string name="settings_widget_color_blue">淺藍</string>
+    <string name="settings_widget_color_green">淺綠</string>
+    <string name="settings_widget_color_yellow">淺黃</string>
+    <string name="settings_widget_color_white">白色</string>
+    <string name="settings_widget_color_gray">淺灰</string>
+
+    <string name="settings_widget_color_dark_gray">深灰／黑</string>
+    <string name="settings_widget_color_dark_purple">深紫</string>
+    <string name="settings_widget_color_dark_blue">深藍</string>
+    <string name="settings_widget_color_dark_brown">深棕</string>
+
+    <string name="settings_widget_color_soft_purple">柔紫</string>
+    <string name="settings_widget_color_soft_gray">柔灰</string>
+    <string name="settings_widget_color_soft_blue">柔藍</string>
+    <string name="settings_widget_color_soft_gold">柔金</string>
+</resources>

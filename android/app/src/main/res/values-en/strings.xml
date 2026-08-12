@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">On This Day</string>
+
+    <!-- M2: history event list screen -->
+    <string name="list_screen_title">On This Day</string>
+    <string name="loading_label">Loading…</string>
+    <string name="empty_no_data_title">No historical events for today</string>
+    <string name="empty_error_title">Couldn\'t load data — check your connection and try again</string>
+    <string name="retry_button">Retry</string>
+    <string name="stale_data_notice">Showing previously cached data — the latest data is temporarily unavailable</string>
+    <!-- %1$d = year, %2$s = event title, per REQUIREMENTS.md 2.2 "【西元年份】事件標題" format -->
+    <string name="event_item_format">【%1$d】%2$s</string>
+
+    <!-- Sort feature (2026-07-30): TopAppBar sort icon and menu -->
+    <string name="sort_content_description">Sort</string>
+    <string name="sort_menu_year_ascending">Year: Oldest first</string>
+    <string name="sort_menu_year_descending">Year: Newest first</string>
+
+    <!-- M2: event detail screen -->
+    <string name="detail_screen_title">Event Detail</string>
+    <string name="back_content_description">Back</string>
+    <string name="detail_year_label">Year %1$d</string>
+    <string name="source_section_title">Read more</string>
+    <string name="detail_not_found">This event could not be found — it may have been replaced by newer data</string>
+    <string name="attribution_notice">Source: Wikipedia (CC BY-SA licensed)</string>
+
+    <!-- M3: Widget -->
+    <string name="widget_preparing_data">Preparing data, please wait…</string>
+    <string name="widget_app_name_short">On This Day</string>
+
+    <!-- M6: settings screen -->
+    <string name="settings_content_description">Settings</string>
+    <string name="settings_screen_title">Settings</string>
+    <string name="settings_language_section_title">Language</string>
+    <string name="settings_language_zh_hant">繁體中文 (Traditional Chinese)</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_rotation_interval_section_title">Widget rotation interval</string>
+    <string name="settings_rotation_interval_hint">Due to platform limits, the Widget rotates through events on a timer instead of scrolling continuously; the actual change may lag by up to ±15 minutes depending on system power-saving behavior</string>
+    <!-- %1$d = number of minutes -->
+    <string name="settings_rotation_interval_option">%1$d minutes</string>
+
+    <!-- Widget appearance customization (2026-07-30): preset swatches (light backgrounds / dark text / neutral border tones), not a free color picker -->
+    <string name="settings_widget_appearance_section_title">Widget appearance</string>
+    <string name="settings_widget_appearance_preview_label">Preview</string>
+    <string name="settings_widget_appearance_preview_text">[1969] Sample historical event text</string>
+    <string name="settings_widget_background_color_label">Background color</string>
+    <string name="settings_widget_text_color_label">Text color</string>
+    <string name="settings_widget_border_color_label">Border color</string>
+
+    <string name="settings_widget_color_lavender">Lavender</string>
+    <string name="settings_widget_color_pink">Pink</string>
+    <string name="settings_widget_color_blue">Blue</string>
+    <string name="settings_widget_color_green">Green</string>
+    <string name="settings_widget_color_yellow">Yellow</string>
+    <string name="settings_widget_color_white">White</string>
+    <string name="settings_widget_color_gray">Gray</string>
+
+    <string name="settings_widget_color_dark_gray">Dark gray/black</string>
+    <string name="settings_widget_color_dark_purple">Dark purple</string>
+    <string name="settings_widget_color_dark_blue">Dark blue</string>
+    <string name="settings_widget_color_dark_brown">Dark brown</string>
+
+    <string name="settings_widget_color_soft_purple">Soft purple</string>
+    <string name="settings_widget_color_soft_gray">Soft gray</string>
+    <string name="settings_widget_color_soft_blue">Soft blue</string>
+    <string name="settings_widget_color_soft_gold">Soft gold</string>
+</resources>

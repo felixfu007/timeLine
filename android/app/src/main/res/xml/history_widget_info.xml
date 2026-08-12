@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    F-03: supports both a 4x1 (title only) and 4x2 (title + year) layout, chosen at runtime by
+    HistoryWidget's SizeMode.Responsive (see widget/HistoryWidget.kt) between minWidth/minHeight
+    (4x1) and maxResizeWidth/maxResizeHeight (4x2).
+
+    minHeight/maxResizeHeight trimmed from 48dp/110dp to 40dp/84dp on 2026-07-29 per a user UX
+    request that the widget (especially the 4x2 layout) felt too tall; kept in sync with
+    HistoryWidget.SIZE_4X1/SIZE_4X2. Note this only affects the default/allowed size for newly
+    added widget instances — it does not retroactively resize a widget instance a user has already
+    placed and manually resized on their home screen (that geometry is owned by the launcher).
+
+    updatePeriodMillis="0": deliberately NOT using AppWidgetProvider's own periodic update
+    mechanism — all refresh/rotation is driven by WorkManager (scheduler/WidgetRotationWorker.kt)
+    calling updateAll(), per the low-power non-functional standard (ANALYSIS.md 五).
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="180dp"
+    android:minHeight="40dp"
+    android:targetCellWidth="4"
+    android:targetCellHeight="1"
+    android:maxResizeWidth="250dp"
+    android:maxResizeHeight="84dp"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/history_widget_loading" />
